@@ -22,10 +22,10 @@ fn main() {
                 "1" => {
                     day1::print_solution();
                 }
-                /*"2" => {
+                "2" => {
                     day2::print_solution();
                 }
-                "3" => {
+                /*"3" => {
                     day3::print_solution();
                 }
                 "4" => {
@@ -69,8 +69,8 @@ fn main() {
 
 fn run_all() {
     day1::print_solution();
-    /*day2::print_solution();
-    day3::print_solution();
+    day2::print_solution();
+    /*day3::print_solution();
     day4::print_solution();
     day5::print_solution();
     day6::print_solution();
