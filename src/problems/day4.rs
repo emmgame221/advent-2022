@@ -28,9 +28,7 @@ fn solve(lines: &Vec<String>) -> (i32, i32) {
         {
             tot1 += 1;
         }
-        if (leftstart <= rightstart && leftend >= rightend)
-            || (rightstart <= leftstart && rightend >= leftend)
-            || (leftstart >= rightstart && leftstart <= rightend)
+        if (leftstart >= rightstart && leftstart <= rightend)
             || (rightstart >= leftstart && rightstart <= leftend)
         {
             tot2 += 1;
