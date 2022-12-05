@@ -7,6 +7,8 @@ pub fn print_solution() {
     let input = File::open("inputs/input5.txt").unwrap();
     let lines = BufReader::new(input).lines();
     let lines: Vec<String> = lines.map(|x| x.unwrap()).collect();
+    // Not included in this code is manually editing the input to remove the unnecessary words 
+    // and excess spaces for easier parsing
     println!("Day 5 Part 1: {}", part_one(&lines));
     println!("Day 5 Part 2: {}", part_two(&lines));
 }
