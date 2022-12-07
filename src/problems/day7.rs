@@ -38,7 +38,12 @@ fn build_directory_tree(lines: &Vec<String>) -> Vec<AocDirectory> {
             let target_idx = if target == ".." {
                 dirs[cur_dir].parent_idx
             } else if dirs[cur_dir].has_subdir(target, &dirs) {
-                dirs[cur_dir].get_directories(&dirs).iter().find(|d| d.name == target).unwrap().idx
+                dirs[cur_dir]
+                    .get_directories(&dirs)
+                    .iter()
+                    .find(|d| d.name == target)
+                    .unwrap()
+                    .idx
             } else {
                 let newdir = AocDirectory {
                     dirs: Vec::new(),
@@ -102,14 +107,13 @@ struct AocDirectory {
 
 impl AocDirectory {
     fn total_size(&self, dirs: &Vec<AocDirectory>) -> usize {
-        let size = self.get_directories(dirs)
+        let size = self
+            .get_directories(dirs)
             .iter()
             .fold(0, |s, dir| s + dir.total_size(dirs))
             + self.files.iter().fold(0, |s, f| s + f.size);
         size
     }
-
-
 
     fn has_subdir(&self, name: &str, dirs: &Vec<AocDirectory>) -> bool {
         for i in self.dirs.iter() {
