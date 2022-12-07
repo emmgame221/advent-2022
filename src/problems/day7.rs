@@ -8,7 +8,6 @@ pub fn print_solution() {
     let lines = BufReader::new(input).lines();
     let lines: Vec<String> = lines.map(|x| x.unwrap()).collect();
     let dirs = build_directory_tree(&lines);
-    //println!("{:?}", &tree);
     println!("Day 7 Part 1: {}", size_of_removable(&dirs));
     let total_size = dirs[0].total_size(&dirs);
     let goal = 30000000 - (70000000 - total_size);
@@ -34,7 +33,6 @@ fn build_directory_tree(lines: &Vec<String>) -> Vec<AocDirectory> {
     let mut cur_dir = 0;
     let mut next_idx = 1;
     for line in lines.iter().skip(1) {
-        //println!("{}:{}", dirs[cur_dir].name, dirs[cur_dir].total_size(&dirs));
         if line.starts_with("$ cd") {
             let target = line.strip_prefix("$ cd ").unwrap();
             let target_idx = if target == ".." {
@@ -108,7 +106,6 @@ impl AocDirectory {
             .iter()
             .fold(0, |s, dir| s + dir.total_size(dirs))
             + self.files.iter().fold(0, |s, f| s + f.size);
-        //println!("{}:{}", self.name, size);
         size
     }
 
