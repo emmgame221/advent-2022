@@ -10,7 +10,7 @@ pub fn print_solution() {
     let trees = parse(&lines);
     let p1 = part_one(&trees);
     println!("Day 8 Part 1: {}", p1);
-    let p2  = part_two(&trees);
+    let p2 = part_two(&trees);
     println!("Day 8 Part 2: {}", p2);
 }
 
